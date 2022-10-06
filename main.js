@@ -86,7 +86,7 @@ global.loadDatabase = async function loadDatabase() {
 loadDatabase()
 
 global.authFile = `${opts._[0] || 'kannabot'}.data.json`
-console.log(`Load AuthFile from ${authFile}`)
+global.isInit = !fs.existsSync(authFile)
 const { state, saveState } = useSingleFileAuthState(global.authFile)
 
 const connectionOptions = {
